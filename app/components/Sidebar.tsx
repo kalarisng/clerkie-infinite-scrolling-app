@@ -2,6 +2,7 @@
 import Image from "next/image";
 import ClerkieLogo from "@/public/clerkie.png";
 import HomeLogo from "@/public/home.png";
+import FriendsLogo from "@/public/friends.png";
 import { useSelectedLayoutSegment } from "next/navigation";
 import Link from "next/link";
 
@@ -17,18 +18,18 @@ const Sidebar = () => {
     {
       name: "Friends",
       href: "/friends",
-      icon: HomeLogo,
+      icon: FriendsLogo,
       current: `${segment}` === "friends",
     },
   ];
 
   return (
-    <div className="h-screen w-[15.625rem] bg-sidebar-blue text-white sidebar font-semibold sticky top-0">
-      <div className="p-5 flex items-center">
-        <Image src={ClerkieLogo} alt="Logo" style={{ maxWidth: "100%" }} />
+    <div className="h-screen w-[15.625rem] bg-sidebar-blue text-white sidebar sticky top-0">
+      <div className="px-5 pt-4 flex items-center font-semibold">
+        <Image src={ClerkieLogo} alt="Logo" />
         <p className="p-3">Clerkie Challenge</p>
       </div>
-      <nav className="flex flex-1 flex-col">
+      <nav className="flex flex-1 flex-col mt-6">
         <ul role="list" className="flex flex-1 flex-col gap-y-7">
           <li>
             <ul role="list" className="-mx-2 space-y-1">
@@ -38,14 +39,14 @@ const Sidebar = () => {
                     href={option.href}
                     className={`${
                       option.current
-                        ? "bg-gray-700 text-white"
-                        : "text-gray-400 hover:text-white hover:bg-gray-700"
-                    } group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold`}
+                        ? "bg-gray-700 text-white w-56 ml-6"
+                        : "text-white hover:bg-gray-700 w-56 ml-6"
+                    } group flex gap-x-3 rounded-md p-2 text-sm leading-6`}
                   >
                     <Image
                       src={option.icon}
                       alt="Icon"
-                      className="text-gray-300 group-hover:text-white h-6 w-6 shrink-0"
+                      className="h-6 w-6 shrink-0"
                     />
                     {option.name}
                   </Link>
