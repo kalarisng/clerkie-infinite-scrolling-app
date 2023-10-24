@@ -56,13 +56,13 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
           })
         : dataToFetch;
     const rawData = await new Promise((resolve) => {
-      const delay = page === 0 ? 0 : 1000;
+      const delay = 0;
       setTimeout(() => {
         resolve(filteredData);
       }, delay);
     });
 
-    const itemsPerPage = 5; // assume data > 5
+    const itemsPerPage = 6; // assume data > 6
     const limitedData = (rawData as Friend[]).slice(0, itemsPerPage);
     setData(limitedData);
     setFriendData(limitedData);
@@ -99,8 +99,6 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
   }, [data]);
 
   const fetchMoreData = async (dataToFetch: Friend[]) => {
-    console.log("Fetching data for page", page);
-    console.log("selected filters: ", selectedFilters);
     const filteredData =
       selectedFilters.length > 0
         ? dataToFetch.filter((friend) => {
@@ -110,13 +108,13 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
           })
         : dataToFetch;
     const rawData = await new Promise((resolve) => {
-      const delay = page === 0 ? 0 : 1000;
+      const delay = 1000;
       setTimeout(() => {
         resolve(filteredData);
       }, delay);
     });
 
-    const itemsPerPage = 5;
+    const itemsPerPage = 6;
     const skip = page * itemsPerPage;
     const limitedData = (rawData as Friend[]).slice(skip, skip + itemsPerPage);
     setData(limitedData);
@@ -173,7 +171,7 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
               <li key={friend.id} className="mb-4 w-9/12">
                 <div className="border border-opacity-25 p-6 rounded-md">
                   <div className="flex items-center">
-                    <span className="font-bold mr-3 text-base">
+                    <span className="font-bold mr-3 text-sm">
                       {friend.name}
                     </span>
                     <span

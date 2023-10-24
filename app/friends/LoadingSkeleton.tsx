@@ -21,7 +21,7 @@ const LoadingSkeleton = () => {
                   <Image src={LoadingTag} alt="Loading tag..." />
                 </span>
               </div>
-              <div className="flex items-center mt-5">
+              <div className="flex items-center mt-4">
                 <span className="pr-2">
                   <Image src={LoadingEmail} alt="Loading email..." />
                 </span>
