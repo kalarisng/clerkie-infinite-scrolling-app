@@ -1,0 +1,314 @@
+[
+  {
+    "id": 1,
+    "name": "Sally Cooper 1",
+    "email": "sallycooper@gmail.com",
+    "phone": "(470) 782-5471",
+    "tag": "Close Friends"
+  },
+  {
+    "id": 2,
+    "name": "Judith Gonzalez 2",
+    "email": "jgonzalez@gmail.com",
+    "phone": "(123) 142-4123"
+  },
+  {
+    "id": 3,
+    "name": "George Bryant 3",
+    "email": "georgebryant@gmail.com",
+    "phone": "(393) 292-0983"
+  },
+  {
+    "id": 4,
+    "name": "Betty Wood 4",
+    "email": "betty@gmail.com",
+    "phone": "(273) 098-1029",
+    "tag": "Super Close Friends"
+  },
+  {
+    "id": 5,
+    "name": "Debra Russell 5",
+    "email": "debrarussell@gmail.com",
+    "phone": "(412) 235-5321",
+    "tag": "Super Close Friends"
+  },
+  {
+    "id": 6,
+    "name": "Rebecca Flores 6",
+    "email": "rebeccaflores@gmail.com",
+    "phone": "(574) 243-2574",
+    "tag": "Close Friends"
+  },
+  {
+    "id": 7,
+    "name": "Kim Holland 7",
+    "email": "kimholland@gmail.com",
+    "phone": "(357) 345-6324"
+  },
+  {
+    "id": 8,
+    "name": "John Smith 8",
+    "email": "johnsmith@gmail.com",
+    "phone": "(123) 412-2938",
+    "tag": "Super Close Friends"
+  },
+  {
+    "id": 9,
+    "name": "Sally Cooper 9",
+    "email": "sallycooper@gmail.com",
+    "phone": "(470) 782-5471",
+    "tag": "Close Friends"
+  },
+  {
+    "id": 10,
+    "name": "Judith Gonzalez 10",
+    "email": "jgonzalez@gmail.com",
+    "phone": "(123) 142-4123"
+  },
+  {
+    "id": 11,
+    "name": "George Bryant 11",
+    "email": "georgebryant@gmail.com",
+    "phone": "(393) 292-0983"
+  },
+  {
+    "id": 12,
+    "name": "Betty Wood 12",
+    "email": "betty@gmail.com",
+    "phone": "(273) 098-1029",
+    "tag": "Super Close Friends"
+  },
+  {
+    "id": 13,
+    "name": "Debra Russell 13",
+    "email": "debrarussell@gmail.com",
+    "phone": "(412) 235-5321",
+    "tag": "Super Close Friends"
+  },
+  {
+    "id": 14,
+    "name": "Rebecca Flores 14",
+    "email": "rebeccaflores@gmail.com",
+    "phone": "(574) 243-2574",
+    "tag": "Close Friends"
+  },
+  {
+    "id": 15,
+    "name": "Kim Holland 15",
+    "email": "kimholland@gmail.com",
+    "phone": "(357) 345-6324"
+  },
+  {
+    "id": 16,
+    "name": "John Smith 16",
+    "email": "johnsmith@gmail.com",
+    "phone": "(123) 412-2938",
+    "tag": "Super Close Friends"
+  },
+  {
+    "id": 17,
+    "name": "Sally Cooper 17",
+    "email": "sallycooper@gmail.com",
+    "phone": "(470) 782-5471",
+    "tag": "Close Friends"
+  },
+  {
+    "id": 18,
+    "name": "Judith Gonzalez 18",
+    "email": "jgonzalez@gmail.com",
+    "phone": "(123) 142-4123"
+  },
+  {
+    "id": 19,
+    "name": "George Bryant 19",
+    "email": "georgebryant@gmail.com",
+    "phone": "(393) 292-0983"
+  },
+  {
+    "id": 20,
+    "name": "Betty Wood 20",
+    "email": "betty@gmail.com",
+    "phone": "(273) 098-1029",
+    "tag": "Super Close Friends"
+  },
+  {
+    "id": 21,
+    "name": "Debra Russell 21",
+    "email": "debrarussell@gmail.com",
+    "phone": "(412) 235-5321",
+    "tag": "Super Close Friends"
+  },
+  {
+    "id": 22,
+    "name": "Rebecca Flores 22",
+    "email": "rebeccaflores@gmail.com",
+    "phone": "(574) 243-2574",
+    "tag": "Close Friends"
+  },
+  {
+    "id": 23,
+    "name": "Kim Holland 23",
+    "email": "kimholland@gmail.com",
+    "phone": "(357) 345-6324"
+  },
+  {
+    "id": 24,
+    "name": "John Smith 24",
+    "email": "johnsmith@gmail.com",
+    "phone": "(123) 412-2938",
+    "tag": "Super Close Friends"
+  },
+  {
+    "id": 25,
+    "name": "Sally Cooper 25",
+    "email": "sallycooper@gmail.com",
+    "phone": "(470) 782-5471",
+    "tag": "Close Friends"
+  },
+  {
+    "id": 26,
+    "name": "Judith Gonzalez 26",
+    "email": "jgonzalez@gmail.com",
+    "phone": "(123) 142-4123"
+  },
+  {
+    "id": 27,
+    "name": "George Bryant 27",
+    "email": "georgebryant@gmail.com",
+    "phone": "(393) 292-0983"
+  },
+  {
+    "id": 28,
+    "name": "Betty Wood 28",
+    "email": "betty@gmail.com",
+    "phone": "(273) 098-1029",
+    "tag": "Super Close Friends"
+  },
+  {
+    "id": 29,
+    "name": "Debra Russell 29",
+    "email": "debrarussell@gmail.com",
+    "phone": "(412) 235-5321",
+    "tag": "Super Close Friends"
+  },
+  {
+    "id": 30,
+    "name": "Rebecca Flores 30",
+    "email": "rebeccaflores@gmail.com",
+    "phone": "(574) 243-2574",
+    "tag": "Close Friends"
+  },
+  {
+    "id": 31,
+    "name": "Kim Holland 31",
+    "email": "kimholland@gmail.com",
+    "phone": "(357) 345-6324"
+  },
+  {
+    "id": 32,
+    "name": "John Smith 32",
+    "email": "johnsmith@gmail.com",
+    "phone": "(123) 412-2938",
+    "tag": "Super Close Friends"
+  },
+  {
+    "id": 33,
+    "name": "Rebecca Flores 33",
+    "email": "rebeccaflores@gmail.com",
+    "phone": "(574) 243-2574",
+    "tag": "Close Friends"
+  },
+  {
+    "id": 34,
+    "name": "Kim Holland 34",
+    "email": "kimholland@gmail.com",
+    "phone": "(357) 345-6324"
+  },
+  {
+    "id": 35,
+    "name": "John Smith 35",
+    "email": "johnsmith@gmail.com",
+    "phone": "(123) 412-2938",
+    "tag": "Super Close Friends"
+  },
+  {
+    "id": 36,
+    "name": "Rebecca Flores 36",
+    "email": "rebeccaflores@gmail.com",
+    "phone": "(574) 243-2574",
+    "tag": "Close Friends"
+  },
+  {
+    "id": 37,
+    "name": "Kim Holland 37",
+    "email": "kimholland@gmail.com",
+    "phone": "(357) 345-6324"
+  },
+  {
+    "id": 38,
+    "name": "John Smith 38",
+    "email": "johnsmith@gmail.com",
+    "phone": "(123) 412-2938",
+    "tag": "Super Close Friends"
+  },
+  {
+    "id": 39,
+    "name": "Rebecca Flores 39",
+    "email": "rebeccaflores@gmail.com",
+    "phone": "(574) 243-2574",
+    "tag": "Close Friends"
+  },
+  {
+    "id": 40,
+    "name": "Kim Holland 40",
+    "email": "kimholland@gmail.com",
+    "phone": "(357) 345-6324"
+  },
+  {
+    "id": 41,
+    "name": "John Smith 41",
+    "email": "johnsmith@gmail.com",
+    "phone": "(123) 412-2938",
+    "tag": "Super Close Friends"
+  },
+  {
+    "id": 42,
+    "name": "Rebecca Flores 42",
+    "email": "rebeccaflores@gmail.com",
+    "phone": "(574) 243-2574",
+    "tag": "Close Friends"
+  },
+  {
+    "id": 43,
+    "name": "Kim Holland 43",
+    "email": "kimholland@gmail.com",
+    "phone": "(357) 345-6324"
+  },
+  {
+    "id": 44,
+    "name": "John Smith 44",
+    "email": "johnsmith@gmail.com",
+    "phone": "(123) 412-2938",
+    "tag": "Super Close Friends"
+  },
+  {
+    "id": 45,
+    "name": "Rebecca Flores 45",
+    "email": "rebeccaflores@gmail.com",
+    "phone": "(574) 243-2574",
+    "tag": "Close Friends"
+  },
+  {
+    "id": 46,
+    "name": "Kim Holland 46",
+    "email": "kimholland@gmail.com",
+    "phone": "(357) 345-6324"
+  },
+  {
+    "id": 47,
+    "name": "John Smith 47",
+    "email": "johnsmith@gmail.com",
+    "phone": "(123) 412-2938",
+    "tag": "Super Close Friends"
+  }
+]
