@@ -56,13 +56,13 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
           })
         : dataToFetch;
     const rawData = await new Promise((resolve) => {
-      const delay = 0;
+      const delay = page === 0 ? 0 : 1000;
       setTimeout(() => {
         resolve(filteredData);
       }, delay);
     });
 
-    const itemsPerPage = 6; // assume data > 6
+    const itemsPerPage = 5; // assume data > 5
     const limitedData = (rawData as Friend[]).slice(0, itemsPerPage);
     setData(limitedData);
     setFriendData(limitedData);
@@ -73,9 +73,7 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
 
   const onIntersection = (entries: IntersectionObserverEntry[]) => {
     const firstEntry = entries[0];
-    console.log("first entry: ", firstEntry);
     if (firstEntry.isIntersecting && hasMore) {
-      console.log("entered onIntersection");
       if (page > 0) {
         console.log(page);
         fetchMoreData(friendsData);
@@ -84,12 +82,9 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
   };
 
   useEffect(() => {
-    console.log("use effect when data changes");
     const observer = new IntersectionObserver(onIntersection);
-    console.log("current element: ", elementRef.current);
     if (observer && elementRef.current) {
       observer.observe(elementRef.current);
-      // console.log("current element: ", elementRef.current);
     }
     return () => {
       if (observer) {
@@ -99,6 +94,8 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
   }, [data]);
 
   const fetchMoreData = async (dataToFetch: Friend[]) => {
+    console.log("Fetching data for page", page);
+    console.log("selected filters: ", selectedFilters);
     const filteredData =
       selectedFilters.length > 0
         ? dataToFetch.filter((friend) => {
@@ -108,13 +105,13 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
           })
         : dataToFetch;
     const rawData = await new Promise((resolve) => {
-      const delay = 1000;
+      const delay = page === 0 ? 0 : 1000;
       setTimeout(() => {
         resolve(filteredData);
       }, delay);
     });
 
-    const itemsPerPage = 6;
+    const itemsPerPage = 5;
     const skip = page * itemsPerPage;
     const limitedData = (rawData as Friend[]).slice(skip, skip + itemsPerPage);
     setData(limitedData);
@@ -127,7 +124,6 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
 
     if (limitedData.length === 0) {
       setHasMore(false);
-      // setData([]);
     } else {
       setFriendData((prevFriends) => [...prevFriends, ...limitedData]);
       setPage((prevPage) => prevPage + 1);
@@ -163,8 +159,6 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
       {data === null ? (
         <LoadingSkeleton />
       ) : (
-        // initial loading UI
-        // <p>Refresh data</p>
         <div>
           <ul>
             {friendData.map((friend) => (

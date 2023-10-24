@@ -13,6 +13,7 @@ const FriendsPage = () => {
   const [isApplyButtonClicked, setIsApplyButtonClicked] = useState(false);
   const [isClearAllClicked, setIsClearAllClicked] = useState(false);
   const options = ["Close Friends", "Super Close Friends"];
+  const [isConfirmedFilters, setIsConfirmedFilters] = useState(false);
 
   const toggleDropDown = () => {
     setIsOpen(!isOpen);
@@ -31,6 +32,7 @@ const FriendsPage = () => {
 
   const handleApplyComplete = () => {
     setIsApplyButtonClicked(false);
+    setIsOpen(false);
   };
 
   const handleClearAllComplete = () => {
@@ -60,7 +62,7 @@ const FriendsPage = () => {
                   alt="Logo"
                   className="w-4 h-4"
                 />
-                {selectedFilters.length > 0 && (
+                {selectedFilters.length > 0 && isConfirmedFilters && (
                   <span className="text-white text-xs pl-3">
                     {selectedFilters.length}
                   </span>
@@ -78,7 +80,7 @@ const FriendsPage = () => {
                 }}
                 disabled={selectedFilters.length === 0}
                 className={`${
-                  selectedFilters.length > 0 && isApplyButtonClicked
+                  selectedFilters.length > 0 && isConfirmedFilters
                     ? "text-clear-all-blue"
                     : "text-gray-300"
                 } font-semibold`}
@@ -97,9 +99,7 @@ const FriendsPage = () => {
                       : "text-gray-300"
                   } text-center text-xs`}
                   // clicking on clear all sets to no selected filters
-                  onClick={() => {
-                    setSelectedFilters([]);
-                  }}
+                  onClick={handleClearAll}
                 >
                   Clear all
                 </button>
@@ -133,6 +133,7 @@ const FriendsPage = () => {
                   className="flex justify-center items-center w-60 h-8 rounded-md text-white bg-custom-gray text-xs font-semibold"
                   onClick={() => {
                     setIsApplyButtonClicked(true);
+                    setIsConfirmedFilters(true);
                   }}
                 >
                   Apply
