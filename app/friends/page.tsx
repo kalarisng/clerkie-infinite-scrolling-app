@@ -43,8 +43,10 @@ const FriendsPage = () => {
         <div className="relative mb-5">
           <span className="inline-flex items-center">
             <button
-              className={`bg-${
-                isOpen || selectedFilters.length > 0 ? "default-gray" : "white"
+              className={`${
+                isOpen || selectedFilters.length > 0
+                  ? "bg-gray-700"
+                  : "bg-white"
               } pt-1.5 pb-0.5 pl-4 pr-4 border rounded-3xl`}
               onClick={() => setIsOpen(!isOpen)}
             >

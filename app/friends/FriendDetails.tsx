@@ -3,6 +3,7 @@ import { useState, useEffect, useRef, use } from "react";
 import friendsData from "./data.json";
 import Image from "next/image";
 import Ellipse from "@/public/ellipse.png";
+import LoadingSkeleton from "./LoadingSkeleton";
 
 interface FriendDetailsProps {
   selectedFilters: string[];
@@ -32,7 +33,6 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
   const [page, setPage] = useState(0);
   const [firstPageLoaded, setFirstPageLoaded] = useState(false);
   const elementRef = useRef<null | HTMLDivElement>(null);
-  const observerRef = useRef(null);
   //use for initial/filter load
   const [data, setData] = useState<Friend[] | null>(null);
   const [shouldLoadMoreData, setShouldLoadMoreData] = useState<boolean>(true);
@@ -163,9 +163,10 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
   return (
     <div>
       {data === null ? (
-        // initial loading UI
-        <p>Refresh data</p>
+        <LoadingSkeleton />
       ) : (
+        // initial loading UI
+        // <p>Refresh data</p>
         <div>
           <ul>
             {friendData.map((friend) => (
@@ -200,9 +201,7 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
               </li>
             ))}
           </ul>
-          {shouldLoadMoreData && data !== null && (
-            <div ref={elementRef}>Loading...</div>
-          )}
+          {shouldLoadMoreData && data !== null && <div ref={elementRef}></div>}
         </div>
       )}
     </div>

@@ -11,7 +11,7 @@ const config: Config = {
       backgroundColor: {
         // grey: "#424242",
         "sidebar-blue": "rgb(9, 25, 40)",
-        "default-gray": "rgb(66, 66, 66)",
+        "custom-gray": "rgb(66, 66, 66)",
         "close-friends-bg": "rgb(223, 239, 255)",
         "super-close-friends-bg": "rgb(220, 255, 230)",
         // "filter-button-gray": "rgb(66, 66, 66)",
