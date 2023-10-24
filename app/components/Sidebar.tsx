@@ -22,8 +22,6 @@ const Sidebar = () => {
     },
   ];
 
-  console.log(segment);
-
   return (
     <div className="h-screen w-[15.625rem] bg-sidebar-blue text-white sidebar font-semibold sticky top-0">
       <div className="p-5 flex items-center">
