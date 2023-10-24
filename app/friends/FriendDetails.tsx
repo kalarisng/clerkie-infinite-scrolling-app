@@ -56,7 +56,7 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
           })
         : dataToFetch;
     const rawData = await new Promise((resolve) => {
-      const delay = page === 0 ? 0 : 1000;
+      const delay = 1000;
       setTimeout(() => {
         resolve(filteredData);
       }, delay);
