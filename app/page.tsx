@@ -1,9 +1,11 @@
-import Image from "next/image";
+import React from "react";
 
-export default function Home() {
+const HomePage = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Clerkie Challenge
-    </main>
+    <div className="flex h-full justify-center items-center">
+      <div className="font-semibold p-5">Welcome to the Clerkie Challenge!</div>
+    </div>
   );
-}
+};
+
+export default HomePage;
