@@ -4,6 +4,7 @@ import friendsData from "./data.json";
 import Image from "next/image";
 import Ellipse from "@/public/ellipse.png";
 import LoadingSkeleton from "./LoadingSkeleton";
+import Link from "next/link";
 
 interface FriendDetailsProps {
   selectedFilters: string[];
@@ -162,35 +163,37 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
         <div>
           <ul>
             {friendData.map((friend) => (
-              <li key={friend.id} className="mb-4 w-9/12">
-                <div className="border border-opacity-25 p-6 rounded-md">
-                  <div className="flex items-center">
-                    <span className="font-bold mr-3 text-sm">
-                      {friend.name}
-                    </span>
-                    <span
-                      className={`border border-gray-200 border-opacity-0 rounded-3xl px-1.5 text-xs font-semibold ${
-                        friend.tag === "Close Friends"
-                          ? "text-close-friends-tag bg-close-friends-bg"
-                          : "text-super-close-friends-tag bg-super-close-friends-bg"
-                      }`}
-                    >
-                      {friend.tag}
-                    </span>
+              <Link href={`/friends/${friend.id}`} key={friend.id}>
+                <li key={friend.id} className="mb-4 w-9/12">
+                  <div className="border border-opacity-25 p-6 rounded-md">
+                    <div className="flex items-center">
+                      <span className="font-bold mr-3 text-sm">
+                        {friend.name}
+                      </span>
+                      <span
+                        className={`border border-gray-200 border-opacity-0 rounded-3xl px-1.5 text-xs font-semibold ${
+                          friend.tag === "Close Friends"
+                            ? "text-close-friends-tag bg-close-friends-bg"
+                            : "text-super-close-friends-tag bg-super-close-friends-bg"
+                        }`}
+                      >
+                        {friend.tag}
+                      </span>
+                    </div>
+                    <div className="flex items-center mt-2">
+                      <span className="text-sm text-mail-phone-color pr-2">
+                        {friend.email}
+                      </span>
+                      <span>
+                        <Image src={Ellipse} alt="ellipse" />
+                      </span>
+                      <span className="text-sm text-mail-phone-color pl-2">
+                        {friend.phone}
+                      </span>
+                    </div>
                   </div>
-                  <div className="flex items-center mt-2">
-                    <span className="text-sm text-mail-phone-color pr-2">
-                      {friend.email}
-                    </span>
-                    <span>
-                      <Image src={Ellipse} alt="ellipse" />
-                    </span>
-                    <span className="text-sm text-mail-phone-color pl-2">
-                      {friend.phone}
-                    </span>
-                  </div>
-                </div>
-              </li>
+                </li>
+              </Link>
             ))}
           </ul>
           {shouldLoadMoreData && data !== null && <div ref={elementRef}></div>}
