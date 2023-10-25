@@ -77,6 +77,7 @@ const FriendsPage = () => {
                 onClick={() => {
                   setSelectedFilters([]);
                   setIsClearAllClicked(true);
+                  setIsConfirmedFilters(false);
                 }}
                 disabled={selectedFilters.length === 0}
                 className={`${
