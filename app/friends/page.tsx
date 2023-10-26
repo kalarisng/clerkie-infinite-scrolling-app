@@ -65,7 +65,7 @@ const FriendsPage = () => {
             <button
               className={`${
                 isOpen || selectedFilters.length > 0
-                  ? "bg-gray-700"
+                  ? "bg-custom-gray"
                   : "bg-white"
               } pt-1.5 pb-0.5 pl-4 pr-4 border rounded-3xl`}
               onClick={() => setIsOpen(!isOpen)}
