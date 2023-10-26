@@ -3,10 +3,15 @@ import LoadingName from "@/public/loadingname.png";
 import LoadingTag from "@/public/loadingtag.png";
 import LoadingEmail from "@/public/loadingemail.png";
 import LoadingPhone from "@/public/loadingnumber.png";
+import data from "./data.json";
 
 const LoadingSkeleton = () => {
   const size = 6;
-  const sizeArray = new Array(size).fill(null);
+  const dataSize = data.length;
+  const sizeArray = Array.from(
+    { length: size },
+    (_, index) => dataSize + 1 + index
+  );
   return (
     <div>
       <ul>
