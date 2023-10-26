@@ -39,8 +39,8 @@ const Sidebar = () => {
                     href={option.href}
                     className={`${
                       option.current
-                        ? "bg-gray-700 text-white w-56 ml-6"
-                        : "text-white hover:bg-gray-700 w-56 ml-6"
+                        ? "bg-custom-gray text-white w-56 ml-6"
+                        : "text-white hover:bg-custom-gray w-56 ml-6"
                     } group flex gap-x-3 rounded-md p-2 text-sm leading-6`}
                   >
                     <Image
