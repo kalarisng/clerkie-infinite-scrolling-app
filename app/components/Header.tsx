@@ -5,7 +5,8 @@ const Header = () => {
 
   // determine the current page based on path name
   const isHomePage = pathname === "/";
-  const isFriendsPage = pathname === "/friends";
+  const isFriendsPage =
+    pathname === "/friends" || pathname.startsWith("/friends/");
 
   return (
     <header className="flex-1 bg-white text-black font-bold h-20 w-full flex items-center justify-center pl-8 shadow-sm">
