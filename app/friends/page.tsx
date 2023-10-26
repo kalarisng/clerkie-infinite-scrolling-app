@@ -15,14 +15,30 @@ const FriendsPage = () => {
   const options = ["Close Friends", "Super Close Friends"];
   const [isConfirmedFilters, setIsConfirmedFilters] = useState(false);
 
+  // Toggles filter dropdown menu
   const toggleDropDown = () => {
     setIsOpen(!isOpen);
   };
 
+  // Handle Clear all button in filter dropdown menu
   const handleClearAll = () => {
     setSelectedFilters([]);
   };
 
+  // Handle Clear all in filtered view
+  const handleClearAllFilters = () => {
+    setSelectedFilters([]);
+    setIsClearAllClicked(true);
+    setIsConfirmedFilters(false);
+  };
+
+  // Handle Apply button in filter dropdown menu
+  const handleApply = () => {
+    setIsApplyButtonClicked(true);
+    setIsConfirmedFilters(true);
+  };
+
+  // Handle updating of selected filters
   const handleFilterOptions = (option: string) => {
     const updatedFilters = selectedFilters.includes(option)
       ? selectedFilters.filter((item) => item !== option)
@@ -30,11 +46,13 @@ const FriendsPage = () => {
     setSelectedFilters(updatedFilters);
   };
 
+  // Handle completion of applying filters
   const handleApplyComplete = () => {
     setIsApplyButtonClicked(false);
     setIsOpen(false);
   };
 
+  // Hnadle completion of clearing all filters
   const handleClearAllComplete = () => {
     setIsClearAllClicked(false);
   };
@@ -74,11 +92,7 @@ const FriendsPage = () => {
             </span>
             <span className="pl-5 text-xs">
               <button
-                onClick={() => {
-                  setSelectedFilters([]);
-                  setIsClearAllClicked(true);
-                  setIsConfirmedFilters(false);
-                }}
+                onClick={handleClearAllFilters}
                 disabled={selectedFilters.length === 0}
                 className={`${
                   selectedFilters.length > 0 && isConfirmedFilters
@@ -99,7 +113,6 @@ const FriendsPage = () => {
                       ? "text-clear-all-blue"
                       : "text-gray-300"
                   } text-center text-xs`}
-                  // clicking on clear all sets to no selected filters
                   onClick={handleClearAll}
                 >
                   Clear all
@@ -129,13 +142,9 @@ const FriendsPage = () => {
                 ))}
               </div>
               <div className="flex items-center justify-center m-1 pb-1 pt-5">
-                {/* clicking on apply button applies the filter function to the UI */}
                 <button
                   className="flex justify-center items-center w-60 h-8 rounded-md text-white bg-custom-gray text-xs font-semibold"
-                  onClick={() => {
-                    setIsApplyButtonClicked(true);
-                    setIsConfirmedFilters(true);
-                  }}
+                  onClick={handleApply}
                 >
                   Apply
                 </button>

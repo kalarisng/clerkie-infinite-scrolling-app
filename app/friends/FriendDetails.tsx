@@ -1,9 +1,10 @@
 "use client";
-import { useState, useEffect, useRef, use } from "react";
+import { useState, useEffect, useRef } from "react";
 import friendsData from "./data.json";
 import Image from "next/image";
 import Ellipse from "@/public/ellipse.png";
 import LoadingSkeleton from "./LoadingSkeleton";
+import Loading from "@/public/loading.png";
 import Link from "next/link";
 
 interface FriendDetailsProps {
@@ -29,24 +30,19 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
   onApplyComplete,
   onClearAllComplete,
 }) => {
-  const [friendData, setFriendData] = useState<Friend[]>([]);
-  const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(0);
-  const [firstPageLoaded, setFirstPageLoaded] = useState(false);
   const elementRef = useRef<null | HTMLDivElement>(null);
-  //use for initial/filter load
   const [data, setData] = useState<Friend[] | null>(null);
   const [shouldLoadMoreData, setShouldLoadMoreData] = useState<boolean>(true);
 
-  // when component first mounts
-  // fetch the first page of data first
+  // When component first mounts, fetch the first set of data first
   useEffect(() => {
-    console.log("component mounted");
     setData(null);
     setPage(0);
     fetchInitialData(friendsData);
   }, []);
 
+  // Fetch first X number of friends from data
   const fetchInitialData = async (dataToFetch: Friend[]) => {
     const filteredData =
       selectedFilters.length > 0
@@ -56,25 +52,25 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
             );
           })
         : dataToFetch;
-    const rawData = await new Promise((resolve) => {
+
+    const dataFetched = await new Promise((resolve) => {
       const delay = 1000;
       setTimeout(() => {
         resolve(filteredData);
       }, delay);
     });
 
-    const itemsPerPage = 5; // assume data > 5
-    const limitedData = (rawData as Friend[]).slice(0, itemsPerPage);
+    const itemsPerPage = 5;
+    const limitedData = (dataFetched as Friend[]).slice(0, itemsPerPage);
     setData(limitedData);
-    setFriendData(limitedData);
     setPage(1);
     setShouldLoadMoreData(true);
-    setHasMore(true);
   };
 
+  // Intersection observer for API for infinite scrolling
   const onIntersection = (entries: IntersectionObserverEntry[]) => {
     const firstEntry = entries[0];
-    if (firstEntry.isIntersecting && hasMore) {
+    if (firstEntry.isIntersecting && shouldLoadMoreData) {
       if (page > 0) {
         console.log(page);
         fetchMoreData(friendsData);
@@ -82,6 +78,7 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
     }
   };
 
+  // Intersection observer for API for infinite scrolling
   useEffect(() => {
     const observer = new IntersectionObserver(onIntersection);
     if (observer && elementRef.current) {
@@ -94,9 +91,8 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
     };
   }, [data]);
 
+  // Fetch next X number of friends from data
   const fetchMoreData = async (dataToFetch: Friend[]) => {
-    console.log("Fetching data for page", page);
-    console.log("selected filters: ", selectedFilters);
     const filteredData =
       selectedFilters.length > 0
         ? dataToFetch.filter((friend) => {
@@ -105,7 +101,8 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
             );
           })
         : dataToFetch;
-    const rawData = await new Promise((resolve) => {
+
+    const dataFetched = await new Promise((resolve) => {
       const delay = page === 0 ? 0 : 1000;
       setTimeout(() => {
         resolve(filteredData);
@@ -114,30 +111,32 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
 
     const itemsPerPage = 5;
     const skip = page * itemsPerPage;
-    const limitedData = (rawData as Friend[]).slice(skip, skip + itemsPerPage);
-    setData(limitedData);
+    const limitedData = (dataFetched as Friend[]).slice(
+      skip,
+      skip + itemsPerPage
+    );
 
-    // reached end of all data fetched
     if (limitedData.length < itemsPerPage) {
       setShouldLoadMoreData(false);
-      setHasMore(false);
     }
 
     if (limitedData.length === 0) {
-      setHasMore(false);
+      setShouldLoadMoreData(false);
     } else {
-      setFriendData((prevFriends) => [...prevFriends, ...limitedData]);
+      setData((prevFriends) => {
+        if (prevFriends) {
+          return [...prevFriends, ...limitedData];
+        } else {
+          return limitedData;
+        }
+      });
       setPage((prevPage) => prevPage + 1);
-      if (!firstPageLoaded) {
-        console.log("first page is loaded");
-        setFirstPageLoaded(true);
-      }
     }
   };
 
+  // Handle applying of filters
   useEffect(() => {
     if (isApplyButtonClicked) {
-      console.log("filter applied");
       setData(null);
       setPage(0);
       fetchInitialData(friendsData);
@@ -145,9 +144,9 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
     }
   }, [isApplyButtonClicked]);
 
+  // Handle clearing of filters
   useEffect(() => {
     if (isClearAllClicked) {
-      console.log("filter cleared");
       setData(null);
       setPage(0);
       fetchInitialData(friendsData);
@@ -162,7 +161,7 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
       ) : (
         <div>
           <ul>
-            {friendData.map((friend) => (
+            {data.map((friend) => (
               <Link href={`/friends/${friend.id}`} key={friend.id}>
                 <li key={friend.id} className="mb-4 w-9/12">
                   <div className="border border-opacity-25 p-6 rounded-md">
@@ -196,7 +195,14 @@ const FriendDetails: React.FC<FriendDetailsProps> = ({
               </Link>
             ))}
           </ul>
-          {shouldLoadMoreData && data !== null && <div ref={elementRef}></div>}
+          {shouldLoadMoreData && data !== null && (
+            <div
+              ref={elementRef}
+              className="flex justify-center items-center w-4/5"
+            >
+              <Image src={Loading} alt="Loading..." className="h-8 w-8" />
+            </div>
+          )}
         </div>
       )}
     </div>
